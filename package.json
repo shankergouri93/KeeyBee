@@ -7,7 +7,8 @@
     "build": "ng build",
     "server": "nodemon server/server.js --ext js,ts,json,html",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build2": "ng build --output-path docs --base-href /KeeyBee/"
   },
   "private": true,
   "dependencies": {
