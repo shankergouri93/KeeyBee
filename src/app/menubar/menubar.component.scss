@@ -1,0 +1,21 @@
+.title-icon {
+    font-weight: bold;
+    color: blue;
+}
+
+::ng-deep .p-menubar {
+    p-menubarsub {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+    }
+}
+
+.background-ash {
+    background-color: antiquewhite;
+}
+.dot-icon {
+    color: red;
+    font-size: x-large;
+}
