@@ -39,6 +39,7 @@ export class AppMenubar implements OnInit {
                     },
                     {
                         label: 'Data & Analytics',
+                        routerLink: 'data_analytics'
                     },
                     {
                         label: 'Digital Engineering',
