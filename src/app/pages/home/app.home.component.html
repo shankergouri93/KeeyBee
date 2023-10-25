@@ -1,0 +1,23 @@
+<p-carousel [value]="coverImages" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
+    [responsiveOptions]="responsiveOptions">
+    <ng-template let-product pTemplate="item">
+        <div>
+            <div class="grid grid-nogutter">
+                <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+                    <section>
+                        <div class="text-4xl text-primary font-bold mb-3">{{product.heading}}</div>
+                        <p class="mt-0 mb-4 text-700 line-height-3">{{product.content}}</p>
+                        <span class="grid grid-nogutter">
+                            <button class="md:col-6" pButton pRipple label="Learn More" type="button" class="mr-3 p-button-raised"></button>
+                            <button class="md:col-6" pButton pRipple label="Contact Us" type="button" class="p-button-outlined"></button>
+                        </span>
+                    </section>
+                </div>
+                <div class="col-12 md:col-6 overflow-hidden">
+                    <img src="{{product.path}}" alt="Image" class="md:ml-auto block md:h-full"
+                        style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)" [ngStyle]="{width: '100%'}">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>
