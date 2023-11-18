@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -9,6 +9,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppMenubar implements OnInit {
     items: MenuItem[] | undefined;
+    selectedItem: MenuItem | undefined = {};
 
     ngOnInit() {
         this.items = [
@@ -100,4 +101,24 @@ export class AppMenubar implements OnInit {
             }
         ];
     }
+
+    menuExpanded = false;
+
+  toggleMenu(sitem: MenuItem) {
+    this.selectedItem = sitem;
+    setTimeout(() => {
+      this.menuExpanded = !this.menuExpanded;
+    }, 0);
+  }
+
+  @HostListener('window:click', ['$event'])
+  listenToOutsideClick(event: PointerEvent) {
+    const target = event.target as HTMLElement;
+    const isToggler = target.getAttribute('id')?.startsWith('navbarDropdown')
+    if (!this.menuExpanded || isToggler) {
+      return;
+    }
+
+    this.menuExpanded = false;
+  };
 }
