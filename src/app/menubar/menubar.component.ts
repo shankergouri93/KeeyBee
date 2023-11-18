@@ -1,6 +1,6 @@
 
 import { Component, HostListener, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { AppMenuItem } from '../models/app-menu-item';
 
 @Component({
     selector: 'app-menubar',
@@ -8,8 +8,9 @@ import { MenuItem } from 'primeng/api';
     styleUrls: ['./menubar.component.scss']
 })
 export class AppMenubar implements OnInit {
-    items: MenuItem[] | undefined;
-    selectedItem: MenuItem | undefined = {};
+    items: AppMenuItem[] | any | undefined;
+    selectedItem: AppMenuItem | undefined = {};
+    selectedSubItem: AppMenuItem | undefined = {};
 
     ngOnInit() {
         this.items = [
@@ -17,23 +18,39 @@ export class AppMenubar implements OnInit {
                 label: 'Services',
                 items: [
                     {
+                        label: 'Overview',
+                        isOverview: true,
+                        overview: {
+                            header: 'KeeyBee is here to make a difference.',
+                            buttonName: 'Discover all solutions',
+                            content: 'We build greater solutions for businesses across multiple industries and companies'
+                        }
+                    },
+                    {
                         label: 'Cloud & Infrastructure',
-                        items:[
+                        items: [
                             {
                                 label: 'Cloud',
                                 items: [
                                     {
-                                        label:'AWS'
+                                        label: 'AWS'
                                     },
                                     {
-                                        label:'Azure'
+                                        label: 'Azure'
                                     },
                                     {
-                                        label:'Google Cloud Platform'
+                                        label: 'Google Cloud Platform'
                                     }
                                 ]
                             }
-                        ]
+                        ],
+                        content: [
+                            {
+                                header: 'sdfsdf'
+                            },
+                            {
+                                header: 'sdfsdf'
+                            }]
                     },
                     {
                         label: 'Consulting',
@@ -54,6 +71,15 @@ export class AppMenubar implements OnInit {
                 label: 'Resources',
                 // icon: 'pi pi-fw pi-calendar',
                 items: [
+                    {
+                        label: 'Overview',
+                        isOverview: true,
+                        overview: {
+                            header: 'KeeyBee is here to make a difference.',
+                            buttonName: 'Discover all solutions',
+                            content: 'We build greater solutions for businesses across multiple industries and companies'
+                        }
+                    },
                     {
                         label: 'Explore',
                         items: [
@@ -86,16 +112,25 @@ export class AppMenubar implements OnInit {
                 // icon: 'pi pi-fw pi-power-off'
                 items: [
                     {
+                        label: 'Overview',
+                        isOverview: true,
+                        overview: {
+                            header: 'KeeyBee is here to make a difference.',
+                            buttonName: 'Discover all solutions',
+                            content: 'We build greater solutions for businesses across multiple industries and companies'
+                        }
+                    },
+                    {
                         label: 'Careers'
                     },
                     {
-                        label:'Leadership'
+                        label: 'Leadership'
                     },
                     {
                         label: 'Partners'
                     },
                     {
-                        label:'Locations'
+                        label: 'Locations'
                     }
                 ]
             }
@@ -104,21 +139,26 @@ export class AppMenubar implements OnInit {
 
     menuExpanded = false;
 
-  toggleMenu(sitem: MenuItem) {
-    this.selectedItem = sitem;
-    setTimeout(() => {
-      this.menuExpanded = !this.menuExpanded;
-    }, 0);
-  }
-
-  @HostListener('window:click', ['$event'])
-  listenToOutsideClick(event: PointerEvent) {
-    const target = event.target as HTMLElement;
-    const isToggler = target.getAttribute('id')?.startsWith('navbarDropdown')
-    if (!this.menuExpanded || isToggler) {
-      return;
+    toggleMenu(sitem: AppMenuItem) {
+        this.selectedItem = sitem;
+        this.selectedSubItem = this.selectedItem.items?.find((s: any) => s.isOverview);
+        setTimeout(() => {
+            this.menuExpanded = !this.menuExpanded;
+        }, 0);
     }
 
-    this.menuExpanded = false;
-  };
+    toggleSubMenuItem(sitem: AppMenuItem) {
+        this.selectedSubItem = sitem;
+    }
+
+    @HostListener('window:click', ['$event'])
+    listenToOutsideClick(event: PointerEvent) {
+        const target = event.target as HTMLElement;
+        const isToggler = target.getAttribute('id')?.startsWith('navbarDropdown')
+        if (!this.menuExpanded || isToggler) {
+            return;
+        }
+
+        this.menuExpanded = false;
+    };
 }
