@@ -143,7 +143,7 @@ export class AppMenubar implements OnInit {
         this.selectedItem = sitem;
         this.selectedSubItem = this.selectedItem.items?.find((s: any) => s.isOverview);
         setTimeout(() => {
-            this.menuExpanded = !this.menuExpanded;
+            this.menuExpanded = true;
         }, 0);
     }
 

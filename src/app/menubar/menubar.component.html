@@ -30,9 +30,8 @@
             </li>
             <!-- Navbar dropdown -->
             <li class="nav-item dropdown position-static" *ngFor="let item of items">
-              <a (click)="toggleMenu(item)" (mouseover)="toggleMenu(item)"
-                class="nav-link dropdown-toggle" href="#" id="{{'navbarDropdown_'+item.label}}" role="button"
-                [attr.aria-expanded]="menuExpanded">
+              <a (click)="toggleMenu(item)" (mouseover)="toggleMenu(item)" class="nav-link dropdown-toggle" href="#"
+                id="{{'navbarDropdown_'+item.label}}" role="button" [attr.aria-expanded]="menuExpanded">
                 {{item.label}}
               </a>
               <!-- Dropdown menu -->
@@ -47,40 +46,59 @@
                           (mouseover)="toggleSubMenuItem(sub)"><i class="fas fa-caret-right pe-2"></i>{{sub.label}}</a>
                       </div>
                     </div>
-                    <div class="col-md-8 col-lg-6 mb-3 mb-lg-0">
+                    <div class="col-md-12 col-lg-9 mb-3 mb-lg-0">
                       <div class="list-group list-group-flush" *ngIf="selectedSubItem">
                         <span *ngIf="selectedSubItem.isOverview; else elseBlock">
-                           <span *ngIf="selectedSubItem.overview">
-                              <h2>
-                                {{selectedSubItem.overview.header}}
-                              </h2>
-                              {{selectedSubItem.overview.content}}
-                              <button type="button" class="btn btn-success">{{selectedSubItem.overview.buttonName}}</button>
-                           </span>
+                          <span *ngIf="selectedSubItem.overview">
+                            <h2>
+                              {{selectedSubItem.overview.header}}
+                            </h2>
+                            {{selectedSubItem.overview.content}}
+                            <button type="button"
+                              class="btn btn-success">{{selectedSubItem.overview.buttonName}}</button>
+                          </span>
                         </span>
                         <ng-template #elseBlock>
                           {{selectedSubItem.label}}
-                          <span *ngIf="selectedSubItem.content">
+                          <!-- <span *ngIf="selectedSubItem.content"> -->
                             <span>
-                              <div class="surface-ground px-4 py-5 md:px-6 lg:px-8">
-                                <div class="grid">
-                                    <div class="col-12 md:col-6 lg:col-3" *ngFor="let simg of selectedSubItem.content">
-                                        <div class="surface-card shadow-2 p-3 border-round">
-                                            <div class="flex justify-content-between mb-3">
-                                                <div>
-                                                    <span class="block text-500 font-medium mb-3">{{simg.header}}</span>
-                                                    <div class="text-900 font-medium text-xl">152 Unread</div>
-                                                </div>
-                                                <div class="flex align-items-center justify-content-center bg-purple-100 border-round" style="width:2.5rem;height:2.5rem">
-                                                    <i class="pi pi-comment text-purple-500 text-xl"></i>
-                                                </div>
-                                            </div>
-                                            <span class="text-green-500 font-medium">85 </span>
-                                            <span class="text-500">responded</span>
-                                        </div>
+                            <span>
+                              <div class="grid nogutter">
+                                <div class="col-12 lg:col-4 p-3">
+                                  <div class="shadow-2 border-round h-full surface-card"><img
+                                      src="assets/images/blog-1.jpg" alt="Image"
+                                      class="block w-full border-round-top">
+                                    <div class="p-4"><span class="block font-medium text-blue-600 mb-3">Who we are</span>
+                                      <div class="text-xl text-900 font-medium mb-3 line-height-3">Know more about the culture</div>
+                                      <div class="line-height-3 mb-3 text-700">Keeybee , your trusted partner for comprehensive IT consulting services. We understand the evolving landscape of technology and the critical role it plays in driving business success. Our team of seasoned IT experts is here to guide you through the complex world of technology, ensuring that your organization harnesses its full potential.
+                                      </div>
                                     </div>
+                                  </div>
                                 </div>
-                            </div>                            
+                                <div class="col-12 lg:col-4 p-3">
+                                  <div class="shadow-2 border-round h-full surface-card"><img
+                                      src="assets/images/blog-2.jpg" alt="Image"
+                                      class="block w-full border-round-top">
+                                    <div class="p-4 flex flex-column"><span
+                                        class="block font-medium text-pink-600 mb-3">Mission</span>
+                                      <div class="text-xl text-900 font-medium mb-3 line-height-3">Customer obsession</div>
+                                      <div class="line-height-3 mb-3 text-700">Transform businesses to through technology” or “The Transformation you need”
+
+                                        .</div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-12 lg:col-4 p-3">
+                                  <div class="shadow-2 border-round h-full surface-card"><img
+                                      src="assets/images/blog-3.jpg" alt="Image"
+                                      class="block w-full border-round-top">
+                                    <div class="p-4"><span class="block font-medium text-orange-600 mb-3">Vision</span>
+                                      <div class="text-xl text-900 font-medium mb-3 line-height-3">Explore the oppurtunities</div>
+                                      <div class="line-height-3 mb-3 text-700">To be the global IT leader that transforms the world through technology innovation, setting new standards for excellence, and empowering and digitalizing businesses and communities to thrive in the digital age.</div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </span>
                           </span>
                         </ng-template>

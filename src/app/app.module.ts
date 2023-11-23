@@ -7,6 +7,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
+import { AvatarModule } from 'primeng/avatar';
 import { AppMenubar } from './menubar/menubar.component';
 import { AppSubMenubar } from './menubar/submenu/submenu.component';
 import { InputTextModule } from 'primeng/inputtext';
@@ -48,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ButtonModule,
     CarouselModule,
     TagModule,
+    AvatarModule,
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
