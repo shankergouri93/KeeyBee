@@ -28,6 +28,7 @@ export class AppMenubar implements OnInit {
                     },
                     {
                         label: 'Cloud & Infrastructure',
+                        routerLink: 'cloud_and_infra',
                         items: [
                             {
                                 label: 'Cloud',

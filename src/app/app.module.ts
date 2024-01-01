@@ -30,6 +30,8 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollerModule } from 'primeng/scroller';
+import { CloudAndInfrastructure } from './pages/cloud-and-infrastructure/cloud-and-infrastructure';
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppMenubar,
     AppSubMenubar,
     AppFooter,
-    AppHome
+    AppHome,
+    CloudAndInfrastructure
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScrollerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
